@@ -5,22 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Výsledná cena</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
 </head>
 <body>
 
-<h1>Výsledná cena stylingu</h1>
+<header>
+    <h1>HAIR STUDIO</h1>
+</header>
 
-<p>
-    Vybraný styling:
-    <span th:text="${service}"></span>
-</p>
+<main>
+    <div class="card">
+        <h2>Výsledná cena stylingu</h2>
 
-<h2>
-    Cena:
-    <span th:text="${price}"></span> Kč
-</h2>
+        <p>
+            Vybraný styling:
+            <strong th:text="${service}"></strong>
+        </p>
 
-<a href="/">Zpět na výběr</a>
+        <h2>
+            <span th:text="${price}"></span> Kč
+        </h2>
+
+        <p>
+            Délka stylingu:
+            <strong th:text="${duration}"></strong> minut
+        </p>
+
+        <p>Mytí vlasů: 15 minut</p>
+
+        <a href="/">Zpět na výběr</a>
+    </div>
+</main>
 
 </body>
 </html>

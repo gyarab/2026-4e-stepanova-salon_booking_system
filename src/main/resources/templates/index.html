@@ -5,58 +5,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hair Studio</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
 </head>
 <body>
 
-<h1>Hair Studio</h1>
-<h2>Online rezervace</h2>
+<header>
+    <h1>HAIR STUDIO</h1>
+</header>
 
-<p>Vyberte si styling a kategorii vlasů.</p>
+<main>
+    <h2>Online rezervace</h2>
+    <p class="intro">
+        Vyberte si styling a kategorii vlasů.
+    </p>
 
-<h3>Naše služby</h3>
+    <div class="card">
+        <h3>Naše služby</h3>
 
-<ul>
-    <li th:each="s : ${services}">
-        <span th:text="${s.name}"></span> -
-        <span th:text="${s.price}"></span> Kč -
-        <span th:text="${s.duration}"></span> minut
-    </li>
-</ul>
+        <ul>
+            <li th:each="s : ${services}">
+                <span th:text="${s.name}"></span> -
+                <span th:text="${s.price}"></span> Kč -
+                <span th:text="${s.duration}"></span> minut
+            </li>
+        </ul>
+    </div>
 
-<h3>Výpočet ceny</h3>
+    <div class="card">
+        <h3>Výpočet ceny</h3>
 
-<form action="/calculate" method="get">
+        <form action="/calculate" method="get">
 
-    <label for="service">Styling:</label>
-    <select id="service" name="service">
-        <option th:each="s : ${services}"
-                th:value="${s.name}"
-                th:text="${s.name}">
-        </option>
-    </select>
+            <label for="service">Styling</label>
+            <select id="service" name="service">
+                <option th:each="s : ${services}"
+                        th:value="${s.name}"
+                        th:text="${s.name}">
+                </option>
+            </select>
 
-    <br><br>
+            <label for="length">Délka vlasů</label>
+            <select id="length" name="length">
+                <option value="short">Krátké</option>
+                <option value="medium">Střední</option>
+                <option value="long">Dlouhé</option>
+            </select>
 
-    <label for="length">Délka vlasů:</label>
-    <select id="length" name="length">
-        <option value="short">Krátké</option>
-        <option value="medium">Střední</option>
-        <option value="long">Dlouhé</option>
-    </select>
+            <label for="density">Hustota vlasů</label>
+            <select id="density" name="density">
+                <option value="normal">Normální</option>
+                <option value="thick">Husté</option>
+            </select>
 
-    <br><br>
+            <button type="submit">Vypočítat cenu</button>
 
-    <label for="density">Hustota vlasů:</label>
-    <select id="density" name="density">
-        <option value="normal">Normální</option>
-        <option value="thick">Husté</option>
-    </select>
-
-    <br><br>
-
-    <button type="submit">Vypočítat cenu</button>
-
-</form>
+        </form>
+    </div>
+</main>
 
 </body>
 </html>
