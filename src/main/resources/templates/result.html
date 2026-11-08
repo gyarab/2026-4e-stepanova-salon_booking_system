@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="cs" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Výsledná cena</title>
+</head>
+<body>
+
+<h1>Výsledná cena stylingu</h1>
+
+<p>
+    Vybraný styling:
+    <span th:text="${service}"></span>
+</p>
+
+<h2>
+    Cena:
+    <span th:text="${price}"></span> Kč
+</h2>
+
+<a href="/">Zpět na výběr</a>
+
+</body>
+</html>
